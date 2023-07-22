@@ -125,6 +125,7 @@ window.addEventListener("resize", () => {
 });
 
 const iconsDiv = document.getElementById("weather_icons_div")
+const blue = "#3b82f6";
 
 function drawWeather(weather_json) {
     var windowHeightRatio = 0.2;
@@ -135,6 +136,9 @@ function drawWeather(weather_json) {
 
     let maxP = Math.max(...weather_json.hourly.precipitation);
     if (maxP < 5) { maxP = 5; }
+
+    document.getElementById("max_mm").innerHTML = `${maxP} mm`;
+
     const heightRatio = canvas.height / maxP;
 
     const widthP = canvas.width / weatherArraySize
@@ -144,8 +148,8 @@ function drawWeather(weather_json) {
 
         ctx.beginPath();
         ctx.lineWidth = "1";
-        ctx.strokeStyle = "blue";
-        ctx.fillStyle = "blue";
+        ctx.strokeStyle = blue;
+        ctx.fillStyle = blue;
         ctx.fillRect(i * widthP, canvas.height - heightP, widthP, heightP);
         ctx.stroke();
     }

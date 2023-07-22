@@ -6,7 +6,7 @@
     height: 50px;
     border: 10px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 10px solid #3498db;
+    border-top: 10px solid #3b82f6;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
@@ -35,6 +35,6 @@
 /* CANVAS */
 #precipitation-canvas {
     width: 100%;
-    border: solid 1px blue;
+    /* border: solid 1px blue; */
     image-rendering: pixelated;
 }
