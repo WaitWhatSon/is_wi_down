@@ -30,3 +30,11 @@
         transform: rotate(360deg);
     }
 }
+
+
+/* CANVAS */
+#precipitation-canvas {
+    width: 100%;
+    border: solid 1px blue;
+    image-rendering: pixelated;
+}

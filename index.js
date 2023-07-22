@@ -2,11 +2,11 @@
 const google_url = "https://www.google.com/"
 
 // pages urls
-const usos_url =    "https://usosweb.pb.edu.pl/"
-const wi_url =      "https://wi.pb.edu.pl/"
-const degra_url =   "https://degra.wi.pb.edu.pl/"
-const cez2_url =    "https://cez2.wi.pb.edu.pl/"
-const lit_url =     "http://lit.wi.pb.edu.pl/"
+const usos_url = "https://usosweb.pb.edu.pl/"
+const wi_url = "https://wi.pb.edu.pl/"
+const degra_url = "https://degra.wi.pb.edu.pl/"
+const cez2_url = "https://cez2.wi.pb.edu.pl/"
+const lit_url = "http://lit.wi.pb.edu.pl/"
 const aragorn_url = "http://aragorn.pb.bialystok.pl/"
 
 // weather url
@@ -15,8 +15,7 @@ const weather_url = "https://api.open-meteo.com/v1/forecast?latitude=53.1333&lon
 // create loaders view
 const loadersDiv = document.getElementById("loaders_div")
 
-function addLoader(url)
-{
+function addLoader(url) {
     let pageUrl = document.createElement("div");
     pageUrl.innerHTML = url;
 
@@ -39,7 +38,7 @@ function addLoader(url)
     loadersDiv.append(pageUrl);
     loadersDiv.append(loaderDiv);
     loadersDiv.append(timerDiv);
-    
+
 }
 
 addLoader(wi_url);
@@ -62,20 +61,20 @@ async function getPage(url) {
     })
         .then(() => { console.log("OK") })
         .catch((error) => { console.log("XDDDD"); console.log(error) })
-        .finally((response) => { 
+        .finally((response) => {
             console.log(response)
             let time = Date.now() - dateStart;
             displayResult(url, time);
         })
 }
 
-function displayResult(url, time){
+function displayResult(url, time) {
     let loaderDiv = document.getElementById(`${url}_loader_div`);
 
-    if(time < 3000){
+    if (time < 3000) {
         loaderDiv.innerHTML = "🥰"
     }
-    else{
+    else {
         loaderDiv.innerHTML = "💀"
     }
 
@@ -113,3 +112,40 @@ const weather_json = JSON.parse(`{"latitude":53.125,"longitude":23.1875,"generat
 // getWeather();
 
 console.log(weather_json);
+
+
+// canvas
+
+const canvas = document.getElementById('precipitation-canvas');
+const ctx = canvas.getContext("2d");
+
+// on page resize
+window.addEventListener("resize", () => {
+    drawWeather(weather_json);
+});
+
+function drawWeather(weather_json) {
+    var windowHeightRatio = 0.2;
+
+    canvas.height = canvas.width * windowHeightRatio * (window.innerHeight / window.innerWidth);
+
+    const weatherArraySize = weather_json.hourly.time.length;
+
+    const maxP = Math.max(...weather_json.hourly.precipitation);
+    const heightRatio = canvas.height / maxP;
+
+    const widthP = canvas.width / weatherArraySize
+
+    for (let i = 0; i < weatherArraySize; i++) {
+        let heightP = weather_json.hourly.precipitation[i] * heightRatio;
+
+        ctx.beginPath();
+        ctx.lineWidth = "1";
+        ctx.strokeStyle = "blue";
+        ctx.fillStyle = "blue";
+        ctx.fillRect(i * widthP, canvas.height - heightP, widthP, heightP);
+        ctx.stroke();
+    }
+}
+
+drawWeather(weather_json);
