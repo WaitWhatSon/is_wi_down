@@ -124,6 +124,8 @@ window.addEventListener("resize", () => {
     drawWeather(weather_json);
 });
 
+const iconsDiv = document.getElementById("weather_icons_div")
+
 function drawWeather(weather_json) {
     var windowHeightRatio = 0.2;
 
@@ -131,7 +133,8 @@ function drawWeather(weather_json) {
 
     const weatherArraySize = weather_json.hourly.time.length;
 
-    const maxP = Math.max(...weather_json.hourly.precipitation);
+    let maxP = Math.max(...weather_json.hourly.precipitation);
+    if (maxP < 5) { maxP = 5; }
     const heightRatio = canvas.height / maxP;
 
     const widthP = canvas.width / weatherArraySize
@@ -146,6 +149,130 @@ function drawWeather(weather_json) {
         ctx.fillRect(i * widthP, canvas.height - heightP, widthP, heightP);
         ctx.stroke();
     }
+
+    iconsDiv.innerHTML = "";
+
+    for (let i = 0; i < 8; i++) {
+        let val = mode(weather_json.hourly.weathercode.slice(i * 12, (i + 1) * 12));
+
+        let newDiv = document.createElement("div");
+
+        // weather decision:
+        switch (val) {
+            case 0: // 0	Clear sky
+                newDiv.innerHTML = "☀️";
+                break;
+            case 1: // 1, 2, 3	Mainly clear, partly cloudy, and overcast
+                newDiv.innerHTML = "🌤";
+                break;
+            case 2:
+                newDiv.innerHTML = "⛅️";
+                break;
+            case 3:
+                newDiv.innerHTML = "☁️";
+                break;
+            case 45: // 45, 48	Fog and depositing rime fog
+                newDiv.innerHTML = "🌫";
+                break;
+            case 48:
+                newDiv.innerHTML = "🌫";
+                break;
+            case 51: // 51, 53, 55	Drizzle: Light, moderate, and dense intensity
+                newDiv.innerHTML = "🌧";
+                break;
+            case 53:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 55:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 56: // 56, 57	Freezing Drizzle: Light and dense intensity
+                newDiv.innerHTML = "🌧";
+                break;
+            case 57:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 61: // 61, 63, 65	Rain: Slight, moderate and heavy intensity
+                newDiv.innerHTML = "🌧";
+                break;
+            case 63:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 65:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 66: // 66, 67	Freezing Rain: Light and heavy intensity
+                newDiv.innerHTML = "🌧";
+                break;
+            case 67:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 71: // 71, 73, 75	Snow fall: Slight, moderate, and heavy intensity
+                newDiv.innerHTML = "🌨";
+                break;
+            case 73:
+                newDiv.innerHTML = "🌨";
+                break;
+            case 75:
+                newDiv.innerHTML = "🌨";
+                break;
+            case 77: // 77	Snow grains
+                newDiv.innerHTML = "🌨";
+                break;
+            case 80: // 80, 81, 82	Rain showers: Slight, moderate, and violent
+                newDiv.innerHTML = "🌧";
+                break;
+            case 81:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 82:
+                newDiv.innerHTML = "🌧";
+                break;
+            case 85: // 85, 86	Snow showers slight and heavy
+                newDiv.innerHTML = "🌨";
+                break;
+            case 86:
+                newDiv.innerHTML = "🌨";
+                break;
+            case 95: // 95 *	Thunderstorm: Slight or moderate
+                newDiv.innerHTML = "🌦";
+                break;
+            case 96: // 96, 99 *	Thunderstorm with slight and heavy hail
+                newDiv.innerHTML = "🌩";
+                break;
+            case 99:
+                newDiv.innerHTML = "⛈";
+                break;
+            default:
+                newDiv.innerHTML = "⛅️";
+        }
+
+        newDiv.classList.add("flex", "justify-center", "items-center");
+        iconsDiv.appendChild(newDiv);
+
+    }
 }
+
+const mode = arr => {
+    const mode = {};
+    let max = 0, count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        const item = arr[i];
+
+        if (mode[item]) {
+            mode[item]++;
+        } else {
+            mode[item] = 1;
+        }
+
+        if (count < mode[item]) {
+            max = item;
+            count = mode[item];
+        }
+    }
+
+    return max;
+};
 
 drawWeather(weather_json);
