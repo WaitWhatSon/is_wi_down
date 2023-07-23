@@ -41,7 +41,7 @@
 
 
 a {
-    color: #3b82f6;
+    /* color: #3b82f6; */
     font-weight: bold;
     font-size: medium;
 }
@@ -49,3 +49,26 @@ a {
 main {
     min-height: 73vh;
 }
+
+
+
+/* CLOUDS */
+.cloud {
+    /* bottom: 15%; */
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run;
+    -webkit-animation-duration: 20s;
+  }
+  @-webkit-keyframes run {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 0;    
+    }
+  }
+

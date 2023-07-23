@@ -6,32 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Is WI down?</title>
-    <link rel="stylesheet" href="./tailwind.min.css">
+    <!-- <link rel="stylesheet" href="./tailwind3.min.css"> -->
+    <script src="./tailwind3.min.css"></script>
     <link rel="stylesheet" href="./style.css">
     <!-- TODO: icon -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-
-        <main>
-            <div class="p-2 flex font-bold text-2xl justify-center items-center w-full inline-block align-middle">
-                <h1>Is WI down?</h1>
+    <div class="fixed w-full h-screen">
+        <div class="flex h-[20%] bg-sky-800 p-2 w-full align-middle justify-center items-center">
+            
+            <div class="absolute z-0 w-[200%]">
+                <div class="cloud absolute w-[50px]">
+                    <img src="img/cloud.svg">
+                </div>
             </div>
-
-            <div class="w-full flex justify-center items-center">
-                <img src="./img/wi.pb.edu.pl.svg" width="70">
-            </div>
-
-            <div class="py-5 flex justify-center items-center w-full">
-                <div id="loaders_div" class="flex flex-wrap z-0 w-full"></div>
-            </div>
-        </main>
-
-        <div class="sticky bottom-0 flex justify-center items-center w-full z-10">
-
+            
             <div
-                class="relative bg-gray-300 bg-opacity-50 w-full h-fill p-2 m-3 rounded-lg flex justify-center items-center">
+                class="p-2 font-bold text-2xl justify-center items-center w-fill inline-block align-middle z-10">
+                <div>
+                    <h1>Is WI down?</h1>
+                </div>
+                <div class="w-full flex justify-center items-center">
+                    <img src="./img/wi.pb.edu.pl.svg" width="70">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="flex h-[55%] bg-white overflow-y-auto px-2 w-full inline-block justify-center items-center">
+            <div class="bg-white justify-center items-center w-full">
+                <div id="loaders_div" class="flex flex-wrap w-full"></div>
+            </div>
+        </div>
+
+        <div class="flex h-[25%] bg-sky-800 p-2 w-full align-middle justify-center items-center">
+            <div
+                class="relative bg-gray-100 bg-opacity-95 w-full h-fill p-2 m-3 rounded-lg flex justify-center items-center shadow-2xl">
 
                 <div id="precipitation_div" class="flex justify-center items-center w-full">
 
@@ -57,7 +69,10 @@
             </div>
         </div>
 
+        <!-- <div class="sticky bottom-0 flex justify-center items-center w-full z-10"></div> -->
+
         <script src="index.js"></script>
+    </div>
 
 </body>
 
