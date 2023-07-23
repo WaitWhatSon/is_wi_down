@@ -16,10 +16,25 @@ const weather_url = "https://api.open-meteo.com/v1/forecast?latitude=53.1333&lon
 const loadersDiv = document.getElementById("loaders_div")
 
 function addLoader(url) {
+
+    let cardEnvelope = document.createElement("div");
+    cardEnvelope.classList.add("flex", "items-center", "w-full", "sm:w-full", "md:w-1/2", "lg:w-1/3", "xl:w-1/3");
+
+    let card = document.createElement("div");
+    card.classList.add("flex", "grid", "grid-cols-6", "items-center", "w-full", "bg-gray-100", "m-3", "py-3");
+
     let pageUrl = document.createElement("div");
-    pageUrl.innerHTML = url;
+    pageUrl.classList.add("col-span-3", "h-fill", "flex", "items-center", "pl-5");
+    pageUrl.innerHTML = `<span class="inline-block align-middle h-fill"><a href=${url} target="_blank">${url.replace("https://", "").replace("http://", "").replace("/", "")}</a></span>`;
+
+    // let img = document.createElement("img");
+    // img.setAttribute("src", `./img/${url.replace("https://", "").replace("http://", "").replace("/", "")}.svg`);
+    // img.style.height = "50px";
+    // img.style.width = "100px";
+    // img.setAttribute("alt", url);
 
     let loaderDiv = document.createElement("div");
+    loaderDiv.classList.add("flex", "col-span-2", "justify-center", "items-center", "right-0");
     loaderDiv.id = `${url}_loader_div`
 
     let loader = document.createElement("div");
@@ -28,6 +43,7 @@ function addLoader(url) {
     loaderDiv.append(loader);
 
     let timerDiv = document.createElement("div");
+    timerDiv.classList.add("flex", "justify-center", "items-center");
     timerDiv.id = `${url}_timer_div`
 
     let timer = document.createElement("div");
@@ -35,9 +51,19 @@ function addLoader(url) {
     timer.innerHTML = "...";
     timerDiv.appendChild(timer);
 
-    loadersDiv.append(pageUrl);
-    loadersDiv.append(loaderDiv);
-    loadersDiv.append(timerDiv);
+    // loadersDiv.append(pageUrl);
+    // // loadersDiv.appendChild(img);
+    // loadersDiv.append(loaderDiv);
+    // loadersDiv.append(timerDiv);
+
+
+    card.append(pageUrl);
+    card.append(loaderDiv);
+    card.append(timerDiv);
+
+    cardEnvelope.append(card);
+    loadersDiv.append(cardEnvelope);
+    
 
 }
 

@@ -38,3 +38,14 @@
     /* border: solid 1px blue; */
     image-rendering: pixelated;
 }
+
+
+a {
+    color: #3b82f6;
+    font-weight: bold;
+    font-size: medium;
+}
+
+main {
+    min-height: 73vh;
+}
