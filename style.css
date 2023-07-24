@@ -35,8 +35,14 @@
 /* CANVAS */
 #precipitation-canvas {
   width: 100%;
-  /* border: solid 1px blue; */
+  height: 20vh;
+  
   image-rendering: pixelated;
+
+  border-top: dashed 2px #3b82f6;
+  border-bottom: dashed 2px #3b82f6;
+
+  /* background: #cdcdcd; */
 }
 
 

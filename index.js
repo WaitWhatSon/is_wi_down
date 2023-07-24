@@ -151,10 +151,6 @@ function drawWeather(weather_json) {
         return;
     }
 
-    var windowHeightRatio = 0.2;
-
-    canvas.height = canvas.width * windowHeightRatio * (window.innerHeight / window.innerWidth);
-
     const weatherArraySize = weather_json.hourly.time.length;
 
     let maxP = Math.max(...weather_json.hourly.precipitation);
