@@ -60,61 +60,236 @@ main {
 
 /* CLOUDS */
 
-.cloud {
-  position: absolute;
-  -webkit-animation: linear infinite;
-  -webkit-animation-name: run;
-  -webkit-animation-duration: 60s;
+/* LONG */
+@media screen and (min-width: 600px) {
+  
+  .cloud {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run;
+    -webkit-animation-duration: 100s;
+  }
+  
+  @-webkit-keyframes run {
+    0% {
+      left: 0;
+    }
+  
+    50% {
+      left: calc(100% + 300px);
+    }
+  
+    100% {
+      left: 0;
+    }
+  }  
+
+  .cloud_slow {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_slow;
+    -webkit-animation-duration: 150s;
+  }
+  
+  @-webkit-keyframes run_slow {
+    0% {
+      left: 0;
+    }
+  
+    100% {
+      left: calc(100% + 300px);
+    }
+  }
+
+  .cloud_fast {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_fast;
+    -webkit-animation-duration: 60s;
+  }
+  
+  @-webkit-keyframes run_fast {
+    0% {
+      left: 0;
+    }
+  
+    100% {
+      left: calc(100% + 300px);
+    }
+  }
+
+  /* FROM RIGHT */
+
+  .cloud_right {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_right;
+    -webkit-animation-duration: 100s;
+  }
+  
+  @-webkit-keyframes run_right {
+    0% {
+      right: 0;
+    }
+  
+    50% {
+      right: calc(100% + 300px);
+    }
+  
+    100% {
+      right: 0;
+    }
+  }  
+
+  .cloud_slow_right {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_slow_right;
+    -webkit-animation-duration: 150s;
+  }
+  
+  @-webkit-keyframes run_slow_right {
+    0% {
+      right: 0;
+    }
+  
+    100% {
+      right: calc(100% + 300px);
+    }
+  }
+
+  .cloud_fast_right {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_fast_right;
+    -webkit-animation-duration: 60s;
+  }
+  
+  @-webkit-keyframes run_fast_right {
+    0% {
+      right: 0;
+    }
+  
+    100% {
+      right: calc(100% + 300px);
+    }
+  }
+
 }
 
-@-webkit-keyframes run {
-  0% {
-    left: 0;
+/* SMALL */
+@media screen and (max-width: 600px) {
+  .cloud {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run;
+    -webkit-animation-duration: 50s;
+  }
+  
+  @-webkit-keyframes run {
+    0% {
+      left: 0;
+    }
+  
+    50% {
+      left: calc(100% + 300px);
+    }
+  
+    100% {
+      left: 0;
+    }
+  }
+  
+  .cloud_slow {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_slow;
+    -webkit-animation-duration: 120s;
+  }
+  
+  @-webkit-keyframes run_slow {
+    0% {
+      left: 0;
+    }
+  
+    100% {
+      left: calc(100% + 300px);
+    }
   }
 
-  50% {
-    left: 100%;
+  .cloud_fast {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_fast;
+    -webkit-animation-duration: 30s;
+  }
+  
+  @-webkit-keyframes run_fast {
+    0% {
+      left: 0;
+    }
+  
+    100% {
+      left: calc(100% + 300px);
+    }
   }
 
-  100% {
-    left: 0;
+  /* FROM RIGHT */
+
+  .cloud_right {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_right;
+    -webkit-animation-duration: 50s;
   }
+  
+  @-webkit-keyframes run_right {
+    0% {
+      right: 0;
+    }
+  
+    50% {
+      right: calc(100% + 300px);
+    }
+  
+    100% {
+      right: 0;
+    }
+  }  
+
+  .cloud_slow_right {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_slow_right;
+    -webkit-animation-duration: 120s;
+  }
+  
+  @-webkit-keyframes run_slow_right {
+    0% {
+      right: 0;
+    }
+  
+    100% {
+      right: calc(100% + 300px);
+    }
+  }
+
+  .cloud_fast_right {
+    position: absolute;
+    -webkit-animation: linear infinite;
+    -webkit-animation-name: run_fast_right;
+    -webkit-animation-duration: 30s;
+  }
+  
+  @-webkit-keyframes run_fast_right {
+    0% {
+      right: 0;
+    }
+  
+    100% {
+      right: calc(100% + 300px);
+    }
+  }
+
 }
 
-.cloud_slow {
-  position: absolute;
-  -webkit-animation: linear infinite;
-  -webkit-animation-name: run_slow;
-  -webkit-animation-duration: 40s;
-}
-
-@-webkit-keyframes run_slow {
-  0% {
-    left: 0;
-  }
-
-  100% {
-    left: 100%;
-  }
-}
-
-.cloud_fast {
-  position: absolute;
-  -webkit-animation: linear infinite;
-  -webkit-animation-name: run_fast;
-  -webkit-animation-duration: 30s;
-}
-
-@-webkit-keyframes run_fast {
-  0% {
-    left: 0;
-  }
-
-  100% {
-    left: 100%;
-  }
-}
-
-/* #weather_icons_div {
-  font-family: 'segoe-ui-emoji-normal', sans-serif;
-} */
