@@ -1,3 +1,63 @@
+function changeSkyColorDependingOnTime() {
+    const d = new Date();
+    // const hour = d.getHours();
+    let hour = 2;
+    console.log(hour);
+    let color = "null";
+    switch (hour) {
+        case 20:
+        case 21:
+        case 3:
+        case 4:
+            // bg-sky-900
+            color = "rgb(12 74 110)";
+            break;
+        case 19:
+        case 5:
+        case 6:
+            // bg-sky-800
+            color = "rgb(7 89 133)";
+            break;
+        case 18:
+        case 7:
+        case 8:
+            // bg-sky-700
+            color = "rgb(3 105 161)";
+            break;
+        case 17:
+        case 9:
+            // bg-sky-600
+            color = "rgb(2 132 199)";
+            break;
+        case 16:
+        case 10:
+            // bg-sky-500
+            color = "rgb(14 165 233)";
+            break;
+        case 15:
+        case 11:
+            // bg-sky-400
+            color = "rgb(56 189 248)";
+            break;
+        case 13:
+        case 14: 
+        case 12:
+            // bg-sky-300
+            color = "rgb(125 211 252)";
+            break;
+        default:
+            // bg-sky-950
+            color = "rgb(8 47 73)";
+    }
+
+    let array = document.getElementsByClassName("blue-sky");
+    for (let e of array) {
+        e.style.backgroundColor = color;
+    }
+}
+changeSkyColorDependingOnTime()
+
+
 // test url
 const google_url = "https://www.google.com/"
 
@@ -119,17 +179,17 @@ console.log(weather_json);
 // TODO: commented until ui done
 
 
-async function getWeather(){
+async function getWeather() {
 
     try {
         const response = await fetch(weather_url);
         const jsonData = await response.json();
-    
+
         console.log(JSON.stringify(jsonData));
         weather_json = jsonData;
         drawWeather(weather_json);
     }
-    catch(e){
+    catch (e) {
         console.log(e);
     }
 
@@ -149,8 +209,7 @@ const iconsDiv = document.getElementById("weather_icons_div")
 const blue = "#3b82f6";
 
 function drawWeather(weather_json) {
-    if(weather_json == null)
-    {
+    if (weather_json == null) {
         return;
     }
 
