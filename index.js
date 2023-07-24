@@ -1,7 +1,7 @@
 function changeSkyColorDependingOnTime() {
     const d = new Date();
-    // const hour = d.getHours();
-    let hour = 2;
+    const hour = d.getHours();
+    // let hour = 2;
     console.log(hour);
     let color = "null";
     switch (hour) {
