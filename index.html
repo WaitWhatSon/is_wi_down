@@ -10,65 +10,82 @@
     <script src="./tailwind3.min.css"></script>
     <link rel="stylesheet" href="./style.css">
     <!-- TODO: icon -->
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./img/logo.svg" type="image/x-icon">
 </head>
 
 <body>
-    <div class="fixed w-full h-screen">
-        <div class="flex h-[20%] bg-sky-800 p-2 w-full align-middle justify-center items-center">
-            
-            <div class="absolute z-0 w-[200%]">
-                <div class="cloud absolute w-[50px]">
-                    <img src="img/cloud.svg">
-                </div>
-            </div>
-            
-            <div
-                class="p-2 font-bold text-2xl justify-center items-center w-fill inline-block align-middle z-10">
-                <div>
-                    <h1>Is WI down?</h1>
-                </div>
-                <div class="w-full flex justify-center items-center">
-                    <img src="./img/wi.pb.edu.pl.svg" width="70">
-                </div>
-            </div>
+    <div class="fixed w-full inset-0">
+        <div class="static h-[20%] bg-sky-800">
+            <div class="flex p-2 w-full h-full align-middle justify-center items-center">
 
-        </div>
-
-        <div class="flex h-[55%] bg-white overflow-y-auto px-2 w-full inline-block justify-center items-center">
-            <div class="bg-white justify-center items-center w-full">
-                <div id="loaders_div" class="flex flex-wrap w-full"></div>
-            </div>
-        </div>
-
-        <div class="flex h-[25%] bg-sky-800 p-2 w-full align-middle justify-center items-center">
-            <div
-                class="relative bg-gray-100 bg-opacity-95 w-full h-fill p-2 m-3 rounded-lg flex justify-center items-center shadow-2xl">
-
-                <div id="precipitation_div" class="flex justify-center items-center w-full">
-
-                    <canvas id="precipitation-canvas"></canvas>
-
-                    <div id="weather_div"
-                        class="grid grid-cols-3 w-full absolute inset-x-0 top-0 py-2 flex justify-center items-center z-10 font-semibold">
-
-                        <div id="yesterday_div" class="flex justify-center items-center">YESTERDAY</div>
-                        <div id="today_div" class="flex justify-center items-center">TODAY</div>
-                        <div id="tomorrow_div" class="flex justify-center items-center">TOMORROW</div>
-
+                <div class="absolute static h-[20%] z-0 w-[200%]">
+                    <div class="cloud absolute w-[60px]">
+                        <img src="img/cloud.svg">
                     </div>
+                </div>
 
-                    <div id="weather_icons_div"
-                        class="text-3xl grid grid-cols-8 px-3 w-full absolute inset-0 flex justify-center items-center z-10">
+                <div class="absolute static h-[20%] z-0 w-[250%]">
+                    <div class="cloud_fast absolute w-[50px] bottom-5">
+                        <img src="img/cloud.svg">
                     </div>
+                </div>
 
-                    <div id="max_mm" class="absolute top-0 left-0 text-blue-600">10 mm</div>
-                    <div class="absolute bottom-0 left-0 text-blue-600">0 mm</div>
+                <div class="absolute static h-[20%] z-0 w-[150%]">
+                    <div class="cloud_slow absolute w-[100px] bottom-1">
+                        <img src="img/cloud.svg">
+                    </div>
+                </div>
+
+                <div class="p-2 font-bold text-2xl justify-center items-center w-fill inline-block align-middle z-10">
+                    <div>
+                        <h1>Is WI down?</h1>
+                    </div>
+                    <div class="w-full flex justify-center items-center">
+                        <img src="./img/wi.pb.edu.pl.svg" width="70">
+                    </div>
                 </div>
 
             </div>
         </div>
 
+        <div class="static h-[55%] bg-white overflow-y-auto">
+            <div class="flex px-2 w-full inline-block justify-center items-center">
+                <div class="bg-white justify-center items-center w-full">
+                    <div id="loaders_div" class="flex flex-wrap w-full py-5"></div>
+                </div>
+            </div>    
+        </div>
+        
+        <div class="static h-[25%] bg-sky-800">
+            <div class="flex h-full p-2 w-full align-middle justify-center items-center">
+                <div
+                    class="relative bg-gray-100 bg-opacity-95 w-full h-fill p-2 m-3 rounded-lg flex justify-center items-center shadow-2xl">
+    
+                    <div id="precipitation_div" class="flex justify-center items-center w-full">
+    
+                        <canvas id="precipitation-canvas"></canvas>
+    
+                        <div id="weather_div"
+                            class="grid grid-cols-3 w-full absolute inset-x-0 top-0 py-2 flex justify-center items-center z-10 font-semibold">
+    
+                            <div id="yesterday_div" class="flex justify-center items-center">YESTERDAY</div>
+                            <div id="today_div" class="flex justify-center items-center">TODAY</div>
+                            <div id="tomorrow_div" class="flex justify-center items-center">TOMORROW</div>
+    
+                        </div>
+    
+                        <div id="weather_icons_div"
+                            class="text-3xl grid grid-cols-8 px-3 w-full absolute inset-0 flex justify-center items-center z-10">
+                        </div>
+    
+                        <div id="max_mm" class="absolute top-0 left-0 text-blue-600">10 mm</div>
+                        <div class="absolute bottom-0 left-0 text-blue-600">0 mm</div>
+                    </div>
+    
+                </div>
+            </div>    
+        </div>
+        
         <!-- <div class="sticky bottom-0 flex justify-center items-center w-full z-10"></div> -->
 
         <script src="index.js"></script>

@@ -1,74 +1,110 @@
 /* circle pogu */
 .loader {
-    position: relative;
-    z-index: 1;
-    width: 50px;
-    height: 50px;
-    border: 10px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 10px solid #3b82f6;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
+  position: relative;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #3b82f6;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
 
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    100% {
-        transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 
 /* CANVAS */
 #precipitation-canvas {
-    width: 100%;
-    /* border: solid 1px blue; */
-    image-rendering: pixelated;
+  width: 100%;
+  /* border: solid 1px blue; */
+  image-rendering: pixelated;
 }
 
 
 a {
-    /* color: #3b82f6; */
-    font-weight: bold;
-    font-size: medium;
+  /* color: #3b82f6; */
+  font-weight: bold;
+  font-size: medium;
 }
 
 main {
-    min-height: 73vh;
+  min-height: 73vh;
 }
 
 
 
 /* CLOUDS */
+
 .cloud {
-    /* bottom: 15%; */
-    position: absolute;
-    -webkit-animation: linear infinite;
-    -webkit-animation-name: run;
-    -webkit-animation-duration: 20s;
-  }
-  @-webkit-keyframes run {
-    0% {
-      left: 0;
-    }
-    50% {
-      left: 100%;
-    }
-    100% {
-      left: 0;    
-    }
+  position: absolute;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 60s;
+}
+
+@-webkit-keyframes run {
+  0% {
+    left: 0;
   }
 
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+.cloud_slow {
+  position: absolute;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run_slow;
+  -webkit-animation-duration: 40s;
+}
+
+@-webkit-keyframes run_slow {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.cloud_fast {
+  position: absolute;
+  -webkit-animation: linear infinite;
+  -webkit-animation-name: run_fast;
+  -webkit-animation-duration: 30s;
+}
+
+@-webkit-keyframes run_fast {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
