@@ -1,3 +1,37 @@
+@font-face {
+  font-family: orangeJuice;
+  src: url(font/orange-juice/orange\ juice\ 2.0.ttf);
+}
+
+@font-face {
+  font-family: eastTiger;
+  src: url(font/east-tiger/East\ Tiger.otf);
+}
+
+@font-face {
+  font-family: bollymoth;
+  src: url(font/bollymoth/Bollymoth/Bollymoth.ttf);
+}
+
+#page_title {
+  font-family: bollymoth;
+}
+
+.changable_font_color {
+  /* color: rgb(0, 95, 114);
+  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white; */
+
+  color: white;
+  text-shadow: -1px -1px 0 rgb(0, 95, 114), 1px -1px 0 rgb(0, 95, 114), -1px 1px 0 rgb(0, 95, 114), 1px 1px 0 rgb(0, 95, 114);
+}
+
+#wi_logo {
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+  box-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
 /* circle pogu */
 .loader {
   position: relative;
